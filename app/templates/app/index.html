@@ -1,0 +1,83 @@
+{% extends 'app/base.html' %}
+{% block content %}{% load static %}
+
+
+  <!--   slide -->
+  <div id="carouselExampleIndicators" class="carousel slide px-4 pt-2 " style="background-color: #F7F5EB !important">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{%static 'images/puppy.jpg' %}" class="d-block w-100 " height="600px" alt="">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/puppy2.jpeg' %}" class="d-block  w-100 " height="600px" alt="">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/puppy.jpg' %}" class="d-block w-100 " height="600px" alt="">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
+  <!--   movie card -->
+
+
+  <div class=cardcontainer>
+    <div class="card" style="background-color: #EAE0DA !important">
+      <div class="poster">
+        <img src="{% static 'images/poster.jpg'%}">
+      </div>
+      <div class="details">
+        <img src="{% static 'images/avtarlogo.png'%}" class="logo">
+        <h3>Directed by James Cameron</h3>
+        <div class="rating">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <span>4/5</span>
+        </div>
+        <div class="tags">
+          <span>Sci-fi</span>
+          <span>Action</span>
+        </div>
+        <div class="info">
+          <p>
+          </p>
+        </div>
+        <div class="cast">
+          <h4>Cast</h4>
+          <ul>
+            <li><img src="{% static 'images/cast1.jpg'%}"></li>
+            <li><img src="{% static 'images/cast2.jpg'%}"></li>
+            <li><img src="{% static 'images/cast3.jpg'%}"></li>
+            <li><img src="{% static 'images/cast4.jpg'%}"></li>
+            <li><img src="{% static 'images/cast5.jpg'%}"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+  
+</div>
+{% endblock %}

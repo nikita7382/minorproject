@@ -99,10 +99,10 @@ def home(request):
         # print(fetch_poster(i))
         image.append(fetch_poster(i))
         overview.append(fetch_overview(i))
-        print(overview)
-        print(image)
         
     
+    print(overview)
+    print(image)
     context={'movie_name':list(popular_df['title'])[0:15],'images':image,'overview':overview,'genres':list(popular_df['genres'])[0:15],'votes':list(popular_df['num_ratings'])[0:15],'rating':list(popular_df['avg_rating'])[0:15]}
     print(context)
     return render(request, 'app/index.html',context)

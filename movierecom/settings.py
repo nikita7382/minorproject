@@ -69,7 +69,7 @@ TEMPLATES = [
         },
     },
 ]
-AUTH_USER_MODEL = 'app.Viewer'
+
 WSGI_APPLICATION = 'movierecom.wsgi.application'
 
 

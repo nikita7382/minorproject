@@ -3,7 +3,7 @@ from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required
 from .forms import UserCreationForm
 from django.contrib import messages
-from .models import Movie
+from django.contrib.auth.models import User
 from django.http import HttpResponse #new
 from . poster_api import fetch_poster,fetch_overview
 import numpy as np
@@ -61,8 +61,8 @@ def register(request):
             user=form.save(commit=False)
             user.username=user.username.lower()
             user.save()
-            login(request,user)
-            return redirect('home')
+            # login(request,user)
+            return redirect('login')
         else:
             messages.error(request,'Error has occured!')
 
@@ -89,6 +89,7 @@ def loginUser(request):
 
     return render(request,'app/login.html')
 
+@login_required(login_url='login')
 def home(request):
     # movie=Movie.objects.filter(movie_id=285)
     # print(movie)
@@ -124,7 +125,7 @@ def recommend(request):
         print(user_input)
         if input:
             index=np.where(pt.index==user_input)[0][0]
-            similar_items = sorted(list(enumerate(similarity_scores[index])),key=lambda x:x[1],reverse=True)[1:6]
+            similar_items = sorted(list(enumerate(similarity_scores[index])),key=lambda x:x[1],reverse=True)[0:6]
             images=[]
             data=[]
             for i in similar_items:
